@@ -13,4 +13,4 @@ Projeto em sala de aula de API REST (Gestão / Venda de Produtos) em Python.
 - A venda de um produto só pode ocorrer se o produto já estiver registrado no sistema.
 - Após a venda de um produto ocorrer deve-se registar baixa no estoque.
 ## Modelagem de Classes 
-<img src="./modelagem_estoque.drawio.png"> 
+<img src="./modelagem_estoque.drawio.01.png"> 
