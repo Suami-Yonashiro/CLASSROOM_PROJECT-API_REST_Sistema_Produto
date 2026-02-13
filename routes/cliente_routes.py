@@ -1,0 +1,26 @@
+from fastapi import HTTPException, APIRouter, status # Ferramenta para organizar a API em pedaços.
+from ..schemas.cliente_schema import ClienteCreate, Cliente
+from ..services.cliente_service import cliente_service
+
+router = APIRouter(
+    prefix="/clientes",
+    tags=["Clientes"]
+)
+
+@router.post( # Define que esta rota aceita o método POST.
+    "/",
+    response_model=Cliente,
+    status_code=status.HTTP_201_CREATED
+)
+def registrar_cliente(cliente_data: ClienteCreate) -> Cliente:
+    cliente = cliente_service.efetuar_cadastro_cliente(cliente_data)
+    return cliente
+
+@router.get(
+    "/{id_cliente}",
+    response_model=Cliente,
+    status_code=200
+)
+def buscar_cliente_por_id(id_cliente: int) -> Cliente:
+    cliente = cliente_service.buscar_cliente(id_cliente)
+    return cliente
